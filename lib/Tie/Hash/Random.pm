@@ -45,10 +45,10 @@ sub TIEHASH  {
 
     my $args = shift;
 
-    if ($args) { 
-        $storage->{__rand_config} =
-            $args->{rand_args} ||
-                ( set => 'all', min => 5, max => 8 );
+    $storage->{__rand_config} = { set => 'numeric', min => 5, max => 8 };
+
+    foreach (keys %$args) {
+        $storage->{__rand_config}->{$_} = $args->{$_};
     }
  
     return $storage;
@@ -75,8 +75,7 @@ Fetchs
 sub FETCH {
   my ($self, $key) = @_;
 
-
-  $self->{$key} = rand_chars( $self->{__rand_config} ) if ! exists $self->{$key};
+  $self->{$key} = join '', rand_chars( %{$self->{__rand_config}} ) if ! exists $self->{$key};
 
   return $self->{$key};
 }
