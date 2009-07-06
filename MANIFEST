@@ -1,10 +1,5 @@
-Changes
-README
-MANIFEST
-Makefile.PL
 INSTALL
-t/biblio.t
-t/lib/DBD/Mock.pm
-lib/SQL/Bibliosoph.pm
-lib/SQL/Bibliosoph/CatalogFile.pm
-lib/SQL/Bibliosoph/Query.pm
+README
+Makefile.PL
+lib/Tie/Hash/Random.pm
+t/random.t
