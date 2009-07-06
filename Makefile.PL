@@ -7,7 +7,8 @@ WriteMakefile(
 	ABSTRACT		=> 'A tied hash that generate random numbers',
     PREREQ_PM 	   	=> {
             'Test::More' 	    => undef,
-			'Scalar::Util'       => undef,
+			'Scalar::Util'      => undef,
+            'Data::Random'      => undef,
 	},
 );
 

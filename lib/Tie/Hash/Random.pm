@@ -1,6 +1,6 @@
 =head1 NAME
 
-Tie::Hash::Random - Generates random different numbers for different fetched keys
+Tie::Hash::Random - Generates random for different fetched keys
 
 =head1 SYNOPSIS
 
@@ -14,11 +14,16 @@ Tie::Hash::Random - Generates random different numbers for different fetched key
 
   $a_random_number == $hash{foo}; ## True
 
+  ## Set a seed
+  tie %hash, 'Tie::Hash::Random', { set=> 'alpha', min=>5, max=>5 }};
+
 =head1 DESCRIPTION
 
-Tie::Hash::Random generates a random number each time a different
-key is fetched.
+Tie::Hash::Random generates a random number each time a different key is fetched.
 
+The actual random data is generated using Data::Random rand_chars function. The default arguments are 
+                ( set => 'all', min => 5, max => 8 )
+which can be modifed using tie parameters as shown in the SYNOPSIS.                
 
 =cut
 
@@ -29,9 +34,26 @@ use strict;
 use warnings;
 use vars qw($VERSION @ISA);
 use Tie::Hash;
+use Data::Random qw(:all);
 
 $VERSION = '1.0';
-@ISA = qw(Tie::StdHash);
+@ISA = qw(Tie::Hash);
+
+
+sub TIEHASH  {
+    my $storage = bless {}, shift;
+
+    my $args = shift;
+
+    if ($args) { 
+        $storage->{__rand_config} =
+            $args->{rand_args} ||
+                ( set => 'all', min => 5, max => 8 );
+    }
+ 
+    return $storage;
+}
+
 
 =head2 STORE
 
@@ -53,7 +75,8 @@ Fetchs
 sub FETCH {
   my ($self, $key) = @_;
 
-  $self->{key} = rand() if ! exists $self->{key};
+
+  $self->{$key} = rand_chars( $self->{__rand_config} ) if ! exists $self->{$key};
 
   return $self->{$key};
 }
@@ -84,6 +107,6 @@ modify it under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
-perl(1), perltie(1), Tie::StdHash(1), Tie::Hash::Cannabinol
+perl(1), perltie(1), Tie::StdHash(1), Tie::Hash::Cannabinol, Data::Random
 
 =cut

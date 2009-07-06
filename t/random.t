@@ -26,8 +26,13 @@ ok ( $a_random_number == $hash{foo}, "random numbers seems to be stored");
 
 
 $hash{pepe} = 1234;
-ok ( $a_random_number == 1234, "given numbers seems to be stored");
+ok ( $hash{pepe} == 1234, "given numbers seems to be stored");
 
+my %hash2;
+tie %hash2, 'Tie::Hash::Random', { only_int => 1, min=>10, max=>100000 };
+
+my $a_random_number2           = $hash{foo};
+ok (looks_like_number($a_random_number2), "$a_random_number2 is a number");
 
 
 
