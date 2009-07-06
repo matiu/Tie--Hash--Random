@@ -1,4 +1,4 @@
-# This Makefile is for the SQL::Bibliosoph extension to perl.
+# This Makefile is for the Tie::Hash::Random extension to perl.
 #
 # It was generated automatically by MakeMaker version
 # 6.52 (Revision: 65199) from the contents of
@@ -10,11 +10,11 @@
 #
 #   MakeMaker Parameters:
 
-#     ABSTRACT => q[A SQL Query library]
+#     ABSTRACT => q[A tied hash that generate random numbers]
 #     AUTHOR => q[Matias Alejo Garcia ( matiu@cpan.org ) ]
-#     NAME => q[SQL::Bibliosoph]
-#     PREREQ_PM => { Test::More=>undef, Package::Constants=>undef, DBD::mysql=>q[4.004], Time::HiRes=>undef, Carp=>undef, Object::InsideOut=>undef, DBI=>q[1.5] }
-#     VERSION_FROM => q[lib/SQL/Bibliosoph.pm]
+#     NAME => q[Tie::Hash::Random]
+#     PREREQ_PM => { Scalar::Util=>undef, Test::More=>undef, Data::Random=>undef }
+#     VERSION_FROM => q[lib/Tie/Hash/Random.pm]
 
 # --- MakeMaker post_initialize section:
 
@@ -51,13 +51,13 @@ VENDORLIBEXP = /usr/share/perl5
 AR_STATIC_ARGS = cr
 DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
-NAME = SQL::Bibliosoph
-NAME_SYM = SQL_Bibliosoph
-VERSION = 1.5
+NAME = Tie::Hash::Random
+NAME_SYM = Tie_Hash_Random
+VERSION = 1.0
 VERSION_MACRO = VERSION
-VERSION_SYM = 1_5
+VERSION_SYM = 1_0
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 1.5
+XS_VERSION = 1.0
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -141,11 +141,11 @@ MM_REVISION = 65199
 # PARENT_NAME = NAME without BASEEXT and no trailing :: (eg Foo::Bar)
 # DLBASE  = Basename part of dynamic library. May be just equal BASEEXT.
 MAKE = make
-FULLEXT = SQL/Bibliosoph
-BASEEXT = Bibliosoph
-PARENT_NAME = SQL
+FULLEXT = Tie/Hash/Random
+BASEEXT = Random
+PARENT_NAME = Tie::Hash
 DLBASE = $(BASEEXT)
-VERSION_FROM = lib/SQL/Bibliosoph.pm
+VERSION_FROM = lib/Tie/Hash/Random.pm
 OBJECT = 
 LDFROM = $(OBJECT)
 LINKTYPE = dynamic
@@ -157,17 +157,14 @@ C_FILES  =
 O_FILES  = 
 H_FILES  = 
 MAN1PODS = 
-MAN3PODS = lib/SQL/Bibliosoph.pm \
-	lib/SQL/Bibliosoph/CatalogFile.pm \
-	lib/SQL/Bibliosoph/Query.pm \
-	lib/SQL/BibliosophSim.pm
+MAN3PODS = lib/Tie/Hash/Random.pm
 
 # Where is the Config information that we are using/depend on
 CONFIGDEP = $(PERL_ARCHLIB)$(DFSEP)Config.pm $(PERL_INC)$(DFSEP)config.h
 
 # Where to build things
-INST_LIBDIR      = $(INST_LIB)/SQL
-INST_ARCHLIBDIR  = $(INST_ARCHLIB)/SQL
+INST_LIBDIR      = $(INST_LIB)/Tie/Hash
+INST_ARCHLIBDIR  = $(INST_ARCHLIB)/Tie/Hash
 
 INST_AUTODIR     = $(INST_LIB)/auto/$(FULLEXT)
 INST_ARCHAUTODIR = $(INST_ARCHLIB)/auto/$(FULLEXT)
@@ -182,19 +179,10 @@ PERL_ARCHIVE       =
 PERL_ARCHIVE_AFTER = 
 
 
-TO_INST_PM = lib/SQL/Bibliosoph.pm \
-	lib/SQL/Bibliosoph/CatalogFile.pm \
-	lib/SQL/Bibliosoph/Query.pm \
-	lib/SQL/BibliosophSim.pm
+TO_INST_PM = lib/Tie/Hash/Random.pm
 
-PM_TO_BLIB = lib/SQL/Bibliosoph/Query.pm \
-	blib/lib/SQL/Bibliosoph/Query.pm \
-	lib/SQL/Bibliosoph.pm \
-	blib/lib/SQL/Bibliosoph.pm \
-	lib/SQL/Bibliosoph/CatalogFile.pm \
-	blib/lib/SQL/Bibliosoph/CatalogFile.pm \
-	lib/SQL/BibliosophSim.pm \
-	blib/lib/SQL/BibliosophSim.pm
+PM_TO_BLIB = lib/Tie/Hash/Random.pm \
+	blib/lib/Tie/Hash/Random.pm
 
 
 # --- MakeMaker platform_constants section:
@@ -262,8 +250,8 @@ CI = ci -u
 RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
-DISTNAME = SQL-Bibliosoph
-DISTVNAME = SQL-Bibliosoph-1.5
+DISTNAME = Tie-Hash-Random
+DISTVNAME = Tie-Hash-Random-1.0
 
 
 # --- MakeMaker macro section:
@@ -416,15 +404,9 @@ POD2MAN = $(POD2MAN_EXE)
 
 
 manifypods : pure_all  \
-	lib/SQL/Bibliosoph/Query.pm \
-	lib/SQL/Bibliosoph.pm \
-	lib/SQL/Bibliosoph/CatalogFile.pm \
-	lib/SQL/BibliosophSim.pm
+	lib/Tie/Hash/Random.pm
 	$(NOECHO) $(POD2MAN) --section=3 --perm_rw=$(PERM_RW) \
-	  lib/SQL/Bibliosoph/Query.pm $(INST_MAN3DIR)/SQL::Bibliosoph::Query.$(MAN3EXT) \
-	  lib/SQL/Bibliosoph.pm $(INST_MAN3DIR)/SQL::Bibliosoph.$(MAN3EXT) \
-	  lib/SQL/Bibliosoph/CatalogFile.pm $(INST_MAN3DIR)/SQL::Bibliosoph::CatalogFile.$(MAN3EXT) \
-	  lib/SQL/BibliosophSim.pm $(INST_MAN3DIR)/SQL::BibliosophSim.$(MAN3EXT) 
+	  lib/Tie/Hash/Random.pm $(INST_MAN3DIR)/Tie::Hash::Random.$(MAN3EXT) 
 
 
 
@@ -489,9 +471,9 @@ realclean purge ::  clean realclean_subdirs
 metafile : create_distdir
 	$(NOECHO) $(ECHO) Generating META.yml
 	$(NOECHO) $(ECHO) '--- #YAML:1.0' > META_new.yml
-	$(NOECHO) $(ECHO) 'name:               SQL-Bibliosoph' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version:            1.5' >> META_new.yml
-	$(NOECHO) $(ECHO) 'abstract:           A SQL Query library' >> META_new.yml
+	$(NOECHO) $(ECHO) 'name:               Tie-Hash-Random' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version:            1.0' >> META_new.yml
+	$(NOECHO) $(ECHO) 'abstract:           A tied hash that generate random numbers' >> META_new.yml
 	$(NOECHO) $(ECHO) 'author:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    - Matias Alejo Garcia ( matiu@cpan.org ) ' >> META_new.yml
 	$(NOECHO) $(ECHO) 'license:            unknown' >> META_new.yml
@@ -501,13 +483,9 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) 'build_requires:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    ExtUtils::MakeMaker:  0' >> META_new.yml
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
-	$(NOECHO) $(ECHO) '    Carp:                ~' >> META_new.yml
-	$(NOECHO) $(ECHO) '    DBD::mysql:          4.004' >> META_new.yml
-	$(NOECHO) $(ECHO) '    DBI:                 1.5' >> META_new.yml
-	$(NOECHO) $(ECHO) '    Object::InsideOut:   ~' >> META_new.yml
-	$(NOECHO) $(ECHO) '    Package::Constants:  ~' >> META_new.yml
-	$(NOECHO) $(ECHO) '    Test::More:          ~' >> META_new.yml
-	$(NOECHO) $(ECHO) '    Time::HiRes:         ~' >> META_new.yml
+	$(NOECHO) $(ECHO) '    Data::Random:  ~' >> META_new.yml
+	$(NOECHO) $(ECHO) '    Scalar::Util:  ~' >> META_new.yml
+	$(NOECHO) $(ECHO) '    Test::More:    ~' >> META_new.yml
 	$(NOECHO) $(ECHO) 'no_index:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    directory:' >> META_new.yml
 	$(NOECHO) $(ECHO) '        - t' >> META_new.yml
@@ -806,17 +784,13 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="1.5">' > $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    <ABSTRACT>A SQL Query library</ABSTRACT>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="1.0">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '    <ABSTRACT>A tied hash that generate random numbers</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Matias Alejo Garcia ( matiu@cpan.org ) </AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Carp::" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="DBD::mysql" VERSION="4.004" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="DBI::" VERSION="1.5" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Object::InsideOut" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Package::Constants" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Data::Random" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Scalar::Util" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::More" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Time::HiRes" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-gnu-thread-multi-5.10" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
@@ -827,10 +801,7 @@ ppd :
 
 pm_to_blib : $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
-	  lib/SQL/Bibliosoph/Query.pm blib/lib/SQL/Bibliosoph/Query.pm \
-	  lib/SQL/Bibliosoph.pm blib/lib/SQL/Bibliosoph.pm \
-	  lib/SQL/Bibliosoph/CatalogFile.pm blib/lib/SQL/Bibliosoph/CatalogFile.pm \
-	  lib/SQL/BibliosophSim.pm blib/lib/SQL/BibliosophSim.pm 
+	  lib/Tie/Hash/Random.pm blib/lib/Tie/Hash/Random.pm 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 
