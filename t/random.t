@@ -9,8 +9,8 @@ use warnings;
 
 use Test::More;
 use lib qw( ./lib ../lib  );
-use Tie::Hash::Random;
 use Scalar::Util qw(looks_like_number);
+require_ok('Tie::Hash::Random');
 
 my %hash;
 tie %hash, 'Tie::Hash::Random';

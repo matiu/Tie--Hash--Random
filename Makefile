@@ -10,10 +10,10 @@
 #
 #   MakeMaker Parameters:
 
-#     ABSTRACT => q[A tied hash that generate random numbers]
+#     ABSTRACT => q[A tied hash that generate random]
 #     AUTHOR => q[Matias Alejo Garcia ( matiu@cpan.org ) ]
 #     NAME => q[Tie::Hash::Random]
-#     PREREQ_PM => { Scalar::Util=>undef, Test::More=>undef, Data::Random=>undef }
+#     PREREQ_PM => { Scalar::Util=>undef, Test::More=>q[0.88], Data::Random=>undef }
 #     VERSION_FROM => q[lib/Tie/Hash/Random.pm]
 
 # --- MakeMaker post_initialize section:
@@ -53,11 +53,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Tie::Hash::Random
 NAME_SYM = Tie_Hash_Random
-VERSION = 1.0
+VERSION = 1.02
 VERSION_MACRO = VERSION
-VERSION_SYM = 1_0
+VERSION_SYM = 1_02
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 1.0
+XS_VERSION = 1.02
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -251,7 +251,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Tie-Hash-Random
-DISTVNAME = Tie-Hash-Random-1.0
+DISTVNAME = Tie-Hash-Random-1.02
 
 
 # --- MakeMaker macro section:
@@ -472,8 +472,8 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) Generating META.yml
 	$(NOECHO) $(ECHO) '--- #YAML:1.0' > META_new.yml
 	$(NOECHO) $(ECHO) 'name:               Tie-Hash-Random' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version:            1.0' >> META_new.yml
-	$(NOECHO) $(ECHO) 'abstract:           A tied hash that generate random numbers' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version:            1.02' >> META_new.yml
+	$(NOECHO) $(ECHO) 'abstract:           A tied hash that generate random' >> META_new.yml
 	$(NOECHO) $(ECHO) 'author:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    - Matias Alejo Garcia ( matiu@cpan.org ) ' >> META_new.yml
 	$(NOECHO) $(ECHO) 'license:            unknown' >> META_new.yml
@@ -485,7 +485,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    Data::Random:  ~' >> META_new.yml
 	$(NOECHO) $(ECHO) '    Scalar::Util:  ~' >> META_new.yml
-	$(NOECHO) $(ECHO) '    Test::More:    ~' >> META_new.yml
+	$(NOECHO) $(ECHO) '    Test::More:    0.88' >> META_new.yml
 	$(NOECHO) $(ECHO) 'no_index:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    directory:' >> META_new.yml
 	$(NOECHO) $(ECHO) '        - t' >> META_new.yml
@@ -784,13 +784,13 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="1.0">' > $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    <ABSTRACT>A tied hash that generate random numbers</ABSTRACT>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="1.02">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '    <ABSTRACT>A tied hash that generate random</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Matias Alejo Garcia ( matiu@cpan.org ) </AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Data::Random" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Scalar::Util" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::More" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::More" VERSION="0.88" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-gnu-thread-multi-5.10" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd

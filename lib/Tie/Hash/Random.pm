@@ -36,7 +36,7 @@ use vars qw($VERSION @ISA);
 use Tie::Hash;
 use Data::Random qw(:all);
 
-$VERSION = '1.0';
+$VERSION = '1.02';
 @ISA = qw(Tie::Hash);
 
 
@@ -78,6 +78,17 @@ sub FETCH {
   $self->{$key} = join '', rand_chars( %{$self->{__rand_config}} ) if ! exists $self->{$key};
 
   return $self->{$key};
+}
+
+
+=head2 FIRSTKEY
+
+
+=cut
+
+sub FIRSTKEY {
+  my ($self) = @_;
+  return 1;
 }
 
 

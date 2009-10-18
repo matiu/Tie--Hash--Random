@@ -6,7 +6,7 @@ WriteMakefile(
 	AUTHOR			=> 'Matias Alejo Garcia ( matiu@cpan.org ) ',
 	ABSTRACT		=> 'A tied hash that generate random',
     PREREQ_PM 	   	=> {
-            'Test::More' 	    => undef,
+            'Test::More' 	    => '0.88',
 			'Scalar::Util'      => undef,
             'Data::Random'      => undef,
 	},
